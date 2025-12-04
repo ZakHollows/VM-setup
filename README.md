@@ -26,38 +26,50 @@ The goal of this is to have a functioning workspace to practice VMs in the futur
 new issue of trying to set up a new vm, usb is corrupted and write protected so unable to format. have used run command window and typed "diskpart" command which take away the read only files. after run command entered command window opens, type "list disk", the type "select disk 1" (disk that is the same storage size as the usb), type "attributes disk", see if read only is yes or no, type "attributes disk clear readonly" is read only is yes.
 Issue persists
 Download of application Rufus to wipe the usb of any corrupt files and write protections
+During this process as it takes some time download of windows 10 os iso file onto pc to use as the OS for a new vm
 
 
 
 # Troubleshooting
 
  ## Enabling VT-x 
- - Cause - VM would not start as this setting in the BIOS needed to be enabled.
- - Fix -  Restart and entered BIOS, setting with advance tab - CPU configuration - Intel Virtualization Technology - Enable
+ - Problem - VM give visual prompt that it is unable to start due to needing either VT-x enabled or AMD-V
+ - Fix - Find sources online for issue, restart PC and enter BIOS by pressing DEL or F12, go to advance configuration, then advanced tab - CPU configuration - Intel Virtualization Technology - Enable
+ - Cause - Setting is not always automatically turned on during PC set up and installation
+
+- ## Proxmox incorrect OS
+- Problem - Installation of Proxmox not completing, stuck on instllation page with no further way to move forward or change settings within VM
+- Fix - Delete VM with Proxmox OS, download Windows media creation tool, create installation for windows on USB, create new VM, on new installation machine window find Install from, click drop down menu and select OS, click next and proceed with installation
+- Cause - Proxmox designed for higher specification PC, and as base OS for PC not VMs.
 
  ## OS not detected
- - Cause - VM not detecting OS and could not run
- - Fix - Delete previos OS download, download OS from official site. Open file to enable a bootable DVD disc in PC, set up new VM using new Boot up device, select Linux as OS version Debian 12.x 64-bit, set memory to 4GB and finish.
+ - Problem - OS not detected by software apon start up 
+ - Fix - Fresh download of OS onto PC, create ISO file using windows media creation tool, create new VM and on new installation machine window find Installer disc image file (ISO):, click browse and find locatoin of saved ISO file, click on iso file the on open, brought back to the new installation machine window click next and follow on screen instructions for complete installation of new OS
+ - Cause - USB drive corrupt with write protection turned on, unable to re-write onto usb or clear due to need of specialized software to clear protections and format
 
 ## No internet connection in VM
-# troubleshooting steps
-- Restart VM and check internet connection again using "ip a" in VM
-- Vmware Workstation settings for internet connection using bridges connection, check "ip a" for connection
-- IP address showing, attempt to connect through browser on PC using IP address to connect to PVE portal
-- Couldn't reach server
-- In VM in Proxmox shell type "ping" followed by IP address shown in "ip a"
-- 4 packets sent, 0 packets recieved, 4 packets lost
-- Vmware Workstation settings for internet connection changed from bridged to NAT
-- VM shut down, application closed
-- VMware opened, Start VM and type in shell "ip a"
-- IP address showing, use "ping (IP adress)
-- 4 packets sent, 4 packets recieved, 0 packets lost
-- On PC browser type in IP address to access PVE and log in
-- Portal now accessed
-- 
-## Proxmox incorrect OS
-- Cause - Further investigation show this OS Proxmox is meant for installing on the base PC which the VMs wil be run on, not the VMs themselves
-- Fix - Delete created VM with Proxmox OS, download Windows media creation tool, create bootable device using USB drive, create new VM using the windows OS on the USB
+- Problem - No internet connection showing
+- Troubleshooting steps and fix:
+* Restart VM and check internet connection again using "ip a" in VM
+* Vmware Workstation settings for internet connection using bridges connection, check "ip a" for connection
+* IP address showing, attempt to connect through browser on PC using IP address to connect to PVE portal
+* Couldn't reach server
+* In VM in Proxmox shell type "ping" followed by IP address shown in "ip a"
+* 4 packets sent, 0 packets recieved, 4 packets lost
+* Vmware Workstation settings for internet connection changed from bridged to NAT
+* VM shut down, application closed
+* VMware opened, Start VM and type in shell "ip a"
+* IP address showing, use "ping (IP adress)
+* 4 packets sent, 4 packets recieved, 0 packets lost
+* On PC browser type in IP address to access PVE and log in
+* Portal now accessed
+- Cause - Incompatability issue with motherboard using bridge connection for internet access
+
+## EFI time out
+- Problem - EFI time out creating issues with installation on OS on each VM
+- Fix - Ensure VM is turned off, right click on specific VM, go to settings, option tab, advanced, firmware type, select BIOS instead of UEFI, click ok
+- Cause - Know issue with VMware Workshop pro due to incompatability with some motherboards
+  
 
 
-   Admin log in for Proxmox Hope_this_works_9876    email zak_hollows@outlook.com
+
