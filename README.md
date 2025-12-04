@@ -22,9 +22,10 @@ The goal of this is to have a functioning workspace to practice VMs in the futur
 * Troubleshooting needed to establish internet connection, see below for steps taken
 * Further use showing limitation for current goals as unable to utilize Proxmox for further VMs, see troubleshooting
 * Delete VM with Proxmox OS
-* Download Windows media creation tool
-* Create Boot up disk on USB (16GB) for Windows 11
-* Create new VM in VMware Workstation Pro using USB Boot up
+
+new issue of trying to set up a new vm, usb is corrupted and write protected so unable to format. have used run command window and typed "diskpart" command which take away the read only files. after run command entered command window opens, type "list disk", the type "select disk 1" (disk that is the same storage size as the usb), type "attributes disk", see if read only is yes or no, type "attributes disk clear readonly" is read only is yes.
+Issue persists
+Download of application Rufus to wipe the usb of any corrupt files and write protections
 
 
 
