@@ -4,7 +4,7 @@ The goal of this is to have a functioning workspace to practice VMs in the futur
 
 # Steps taken
 
-* Download VMware Workstation pro free to use version through Broadcom from [VMware](https://support.broadcom.com/group/ecx/productfiles?subFamily=VMware%20Workstation%20Pro&displayGroup=VMware%20Workstation%20Pro%2025H2%20for%20Windows&release=25H2&os=&servicePk=&language=EN&freeDownloads=true)
+* Download VMware Workstation pro free to use version for personal use through Broadcom from [VMware](https://support.broadcom.com/group/ecx/productfiles?subFamily=VMware%20Workstation%20Pro&displayGroup=VMware%20Workstation%20Pro%2025H2%20for%20Windows&release=25H2&os=&servicePk=&language=EN&freeDownloads=true)
 * Download Proxmox ISO file from [proxmox](https://www.proxmox.com/en/downloads)
 * Installation of VMware Workstation pro following prompts to complete
 * Create new machine in VMware Workstation pro using Proxmox as the base OS, following onscreen prompts and creating Log in for Proxmox Virtual Enviroment (PVE)
