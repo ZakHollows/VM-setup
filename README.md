@@ -1,6 +1,9 @@
 # VM-setup
 
-The projects goal is to understand how VMware workshop pro works and how to set up a VM using a windows installation. This is to get hand on experience with troubleshooting issues both with the software and a different installation process which was used to create the PC being used for this VM.
+# Summary
+
+The goal for this project is to set up a VM work space using VMware workshop pro, create several systems to simulate a small work enviroment, configure the network to allow communications between devices with security and firewall protocols enabled.
+This is currently a work in progress
 
 # Steps taken
 
